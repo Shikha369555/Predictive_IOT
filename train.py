@@ -28,3 +28,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle
 # -----------------------------
 model = RandomForestClassifier(class_weight='balanced')
 model.fit(X_train, y_train)
+# Evaluate (PR-AUC)
+y_probs = model.predict_proba(X_test)[:, 1]
+score = average_precision_score(y_test, y_probs)
+
+print(f"PR-AUC Score: {score:.4f}")
+
+# Save model
+joblib.dump(model, "model.pkl")
+print("Model saved as model.pkl")
