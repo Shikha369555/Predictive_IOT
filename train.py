@@ -20,3 +20,11 @@ df = df.dropna()
 # Features and target
 X = df.drop(columns=['failure', 'timestamp', 'machine_id'])
 y = df['failure']
+# Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
+
+# -----------------------------
+# MODEL
+# -----------------------------
+model = RandomForestClassifier(class_weight='balanced')
+model.fit(X_train, y_train)
