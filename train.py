@@ -17,3 +17,6 @@ df['temp_lag1'] = df['temperature'].shift(1)
 df['temp_lag2'] = df['temperature'].shift(2)
 # Drop NaN values
 df = df.dropna()
+# Features and target
+X = df.drop(columns=['failure', 'timestamp', 'machine_id'])
+y = df['failure']
