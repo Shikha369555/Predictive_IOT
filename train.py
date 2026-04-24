@@ -15,3 +15,5 @@ df['vib_std_3'] = df['vibration'].rolling(window=3).std()
 # Lag features
 df['temp_lag1'] = df['temperature'].shift(1)
 df['temp_lag2'] = df['temperature'].shift(2)
+# Drop NaN values
+df = df.dropna()
