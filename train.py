@@ -12,3 +12,6 @@ df = df.sort_values(by='timestamp')
 # Rolling features
 df['temp_mean_3'] = df['temperature'].rolling(window=3).mean()
 df['vib_std_3'] = df['vibration'].rolling(window=3).std()
+# Lag features
+df['temp_lag1'] = df['temperature'].shift(1)
+df['temp_lag2'] = df['temperature'].shift(2)
