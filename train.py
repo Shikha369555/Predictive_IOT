@@ -9,3 +9,6 @@ df = pd.read_csv("data.csv")
 # Convert timestamp
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 df = df.sort_values(by='timestamp')
+# Rolling features
+df['temp_mean_3'] = df['temperature'].rolling(window=3).mean()
+df['vib_std_3'] = df['vibration'].rolling(window=3).std()
