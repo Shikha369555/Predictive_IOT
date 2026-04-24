@@ -6,3 +6,6 @@ from sklearn.metrics import average_precision_score
 from sklearn.ensemble import RandomForestClassifier
 # Load data
 df = pd.read_csv("data.csv")
+# Convert timestamp
+df['timestamp'] = pd.to_datetime(df['timestamp'])
+df = df.sort_values(by='timestamp')
